@@ -2,10 +2,29 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom-styles.css">
 	<title>HAKMAN - Govhack 2014</title>
 </head>
 <body>
-	{{{body}}}
-
+    <div class="container">
+        <div class="row-fluid">
+            <div class="col-md-2">
+                <a href="/"><img class="img-responsive center-block" src="images/hakman.png" /></a>
+                <ul class="nav nav-pills nav-stacked text-center">
+                    <li><a href="/kartograph">Kartograph</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-10">
+                {{{body}}}
+            </div>
+        </div>
+    </div>
+    <div id="push"></div>
+    <div class="footer navbar-fixed-bottom">
+        <div class="container">
+            <p class="text-center">Developed by Hakman for Govhack 2014.</p>
+        </div>
+    </div>
 </body>
 </html>
