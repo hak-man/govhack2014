@@ -3,8 +3,7 @@ var path = require('path');
 
 // Loads the various route files
 var routes = require('./routes/index'),
-	about = require('./routes/about'),
-	kartograph = require('./routes/kartograph');
+	about = require('./routes/about');
 var exphbs = require('express3-handlebars'),
 	Handlebars = require('handlebars');
 var weather = require('./lib/weather.js');
@@ -32,7 +31,12 @@ app.use(function (req,res,next) {
 // Defines the routes to use given the URL path
 app.use('/', routes);
 app.use('/about', about);
-app.use('/kartograph', kartograph);
+app.use('/kartograph', function(req, res) {
+	res.render('kartograph');
+});
+app.use('/highmaps', function(req, res) {
+    res.render('highmaps');
+});
 
 // custom 404 page
 app.use(function(req, res) {
