@@ -37,6 +37,9 @@ app.use('/kartograph', function(req, res) {
 app.use('/highmaps', function(req, res) {
     res.render('highmaps');
 });
+app.use('/contracts', function(req, res) {
+    res.render('contracts');
+});
 
 // custom 404 page
 app.use(function(req, res) {
