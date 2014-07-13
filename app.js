@@ -31,8 +31,8 @@ app.use(function (req,res,next) {
 // Defines the routes to use given the URL path
 app.use('/', routes);
 app.use('/about', about);
-app.use('/kartograph', function(req, res) {
-	res.render('kartograph');
+app.use('/timeline', function(req, res) {
+	res.render('timeline');
 });
 app.use('/highmaps', function(req, res) {
     res.render('highmaps');

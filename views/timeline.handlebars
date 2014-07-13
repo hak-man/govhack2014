@@ -1,0 +1,36 @@
+<div class="row-fluid">
+    <div class="col-md-12">
+        <div class="page-header"><h1>MH370 News Timeline</h1></div>
+        <div id="timeline"></div>
+    </div>
+</div>
+
+<link href="bower_components/vis/dist/vis.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="bower_components/vis/dist/vis.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $.getJSON('http://cdn.newsapi.com.au:80/newscontent/?api_key=y8ta428vmcjath8zhfbswxq3&type=news_story&title=mh370', function (data) {
+            // DOM element where the Timeline will be attached
+            var container = document.getElementById('timeline');
+
+            var results = [];
+
+            for (i = 0; i< data.resultSize; i++) {
+                var article = data.results[i];
+                results[results.length] = {id: article.id, content: article.title, start: article.dateLive};
+            }
+
+            // Configuration for the Timeline
+            var options = {
+                start: '2014-04-25',
+                end: '2014-07-01',
+                orientation: 'top',
+                height: '300px'
+            };
+
+            // Create a Timeline
+            var timeline = new vis.Timeline(container, results, options);
+        });
+    });
+</script>
