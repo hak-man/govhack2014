@@ -21,19 +21,19 @@
 <script type="text/javascript" src="bower_components/d3/d3.js"></script>
 <script>
 
-    var width = 1000,
-        height = 600;
+     var width = $("#graph").width(),
+         aspect = 500 / 950;
 
     var color = d3.scale.category20();
 
     var force = d3.layout.force()
             .charge(-60)
             .linkDistance(60)
-            .size([width, height]);
+            .size([width, width*aspect]);
 
     var svg = d3.select("#graph").append("svg")
             .attr("width", width)
-            .attr("height", height);
+            .attr("height", width*aspect);
 
     d3.json("data/contracts-2013.json", function(error, graph) {
         force.nodes(graph.nodes)

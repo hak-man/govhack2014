@@ -18,13 +18,15 @@
 
             for (i = 0; i< data.resultSize; i++) {
                 var article = data.results[i];
-                results[results.length] = {id: article.id, content: article.title, start: article.dateLive};
+                var link = "<a href='" + article.link + "'>" + article.title + "</a>";
+                var thumbnail = "<p><img src='" + article.thumbnailImage.link + "'></p>";
+                results[results.length] = {id: article.id, content: link + thumbnail, start: article.dateLive};
             }
 
             // Configuration for the Timeline
             var options = {
-                start: '2014-04-25',
-                end: '2014-07-01',
+                start: '2014-05-01',
+                end: '2014-05-20',
                 orientation: 'top',
                 height: '300px'
             };
