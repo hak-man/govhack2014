@@ -27,8 +27,8 @@
     var color = d3.scale.category20();
 
     var force = d3.layout.force()
-            .charge(-30)
-            .linkDistance(30)
+            .charge(-60)
+            .linkDistance(60)
             .size([width, height]);
 
     var svg = d3.select("#graph").append("svg")
@@ -53,7 +53,7 @@
                 .enter().append("circle")
                 .attr("class", "node")
                 .attr("r", function(d) {
-                    return Math.log(d.value)/4;
+                    return Math.sqrt(d.value/Math.PI)/250;
                 })
                 .style("fill", function(d) { return color(d.group); })
                 .call(force.drag);
