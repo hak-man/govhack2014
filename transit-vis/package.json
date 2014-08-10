@@ -1,0 +1,18 @@
+{
+  "author": "Greg Bowering <gerg.bowering@gmail.com> (http://www.linkedin.com/profile/view?id=1842188)",
+  "name": "hypearth",
+  "description": "3D Public Transport Modelling and Simulation in Google Earth",
+  "version": "0.0.1",
+  "homepage": "http://www.hypearth.com/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hak-man/govhack2014.git"
+  },
+  "main": "KmlUpdate",
+  "engines": {
+    "node": "~0.6.9"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {}
+}

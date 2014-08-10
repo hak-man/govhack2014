@@ -31,10 +31,6 @@ process.on('uncaughtException', function onUncaughtException(err) {
 	console.log('Caught exception: ' + err);
 });
 
-var net = require('net'); // for TCP socket to get AMPI GPS feed.
-
-var nmea = require('nmea'); // for decoding NMEA sentences in GPS feed.
-
 var http = require('http'); // for HTTP server to serve KML position updates to Goolge Earth clients.
 
 // previous positions required to determine heading
@@ -52,7 +48,7 @@ var s = http.createServer(function httpServe(req, res) {
   // var time = expiryDate.getTime();
   
   var kmlStr = ''
-    + kml.name('AMPI Position Update')
+    + kml.name('Transport Vehicle Position Update')
     + kml.atomAuthorLink('Greg Bowering', 'mailto:gerg.bowering@gmail.com')
     + kml.style('yellowLineGreenPoly', ''
       + kml.lineStyleColorWidth('7f00ffff', 4)
