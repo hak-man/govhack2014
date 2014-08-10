@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<NetworkLink>
+  <name>Dynamic Client Test localhost:1338</name>
+  <flyToView>0</flyToView>
+  <visibility>0</visibility>
+  <open>0</open>
+  <description>The network link loads kml data from another kml file.  Can be used for bidirectional communication between GE client and server.</description>
+  <refreshVisibility>0</refreshVisibility>
+  <Link>
+    <href>http://localhost:1338/</href>
+    <refreshMode>onInterval</refreshMode>
+    <refreshInterval>1.0</refreshInterval>
+    <viewRefreshMode>onStop</viewRefreshMode>
+    <viewRefreshTime>0.0</viewRefreshTime><!-- specify seconds after viewRefreshMode onStop -->
+    <viewFormat>LOOKAT=[lookatTerrainLon],[lookatTerrainLat],[lookatTerrainAlt],[cameraLon],[cameraLat],[cameraAlt]</viewFormat>
+  </Link>
+</NetworkLink>
+</kml>
