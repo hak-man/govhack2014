@@ -183,6 +183,13 @@ exports.name = function name(n) {
   return '<name>' + n + '</name>\n';
 };
 
+// <NetworkLink>:
+exports.networkLink = function networkLink(bodyContent) {
+  return '<NetworkLink>\n'
+    + bodyContent
+    + '</NetworkLink>\n';
+};
+
 // <NetworkLinkControl>:
 exports.networkLinkControl = function networkLinkControl(bodyContent) {
   return '<NetworkLinkControl>\n'
