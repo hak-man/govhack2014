@@ -12,7 +12,8 @@
 //"/update.kml" -> provides a single state update to the client.
 
 var UPDATE_KML_PATH = "update.kml";
-var UPDATE_SVR_URL = "http://adelaide3d.herokuapp.com/" + UPDATE_KML_PATH;
+//var UPDATE_SVR_URL = "http://adelaide3d.herokuapp.com/" + UPDATE_KML_PATH;
+var UPDATE_SVR_URL = "http://localhost/" + UPDATE_KML_PATH;
 
 var http = require('http'); // for HTTP server to serve KML position updates to Goolge Earth clients
 var url = require('url'); // for parsing request URL
@@ -45,7 +46,7 @@ process.on('uncaughtException', function onUncaughtException(err) {
 
 //previous positions required to determine heading
 var prevPositions = {};
-var currPositions = {"TramId": new kml.Coords3("TramId", 138.587222, -34.922150)};
+var currPositions = {"TramId": new kml.Coords3("TramId", 138.5879, -34.92211)};
 var currHeadings = {};
 var prevHeadings = {};
 
@@ -59,13 +60,15 @@ var updateEverySecond = function() {
 	var dummyMoveSouth = new kml.Coords3("moveSouth",  0.0, -0.00001);
 	var dummyMoveEast = new kml.Coords3("moveEast",  0.00001, 0);
 	var dummyMoveWest = new kml.Coords3("moveWest", -0.00001, 0);
+	var dummyMoveEastNortheast = new kml.Coords3("moveEastNortheast", 0.00001, 0.0000005);
 
 	for (service_id in currPositions) {
 //		console.log("updating service_id " + service_id);
 
 		var currPosition = currPositions[service_id];
 		prevPositions[service_id] = currPosition;
-		currPosition = currPosition.add(dummyMoveEast);
+		currPosition = currPosition.add(dummyMoveEastNortheast); // East along North Terrace
+		currPosition = currPosition.add(dummyMoveEastNortheast); // East along North Terrace
 		currPositions[service_id] = currPosition;
 	}
 }
